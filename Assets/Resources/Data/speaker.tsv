@@ -1,0 +1,5 @@
+id	name_ko	name_en	name_ja	path	color	typing_sfx
+yeon	연이	Yeon	ヨニ	yeon	FFFFFF	yeon_dialogue_type
+yeon_hidden	연이	Yeon	ヨニ	none	FFFFFF	yeon_dialogue_type
+hero	주인공	Protagonist	主人公	none	FFFFFF	dialogue_type
+???	???	???	???	none	FFFFFF	yeon_dialogue_type

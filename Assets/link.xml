@@ -1,0 +1,8 @@
+<linker>
+  <assembly fullname="Assembly-CSharp">
+    <type fullname="Escape.Data.Item" preserve="all" />
+    <type fullname="Escape.Data.Speaker" preserve="all" />
+    <type fullname="Escape.Data.Dialogue" preserve="all" />
+    <type fullname="Escape.Data.UiText" preserve="all" />
+  </assembly>
+</linker>

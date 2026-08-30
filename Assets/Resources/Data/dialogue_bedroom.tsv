@@ -1,0 +1,103 @@
+id	speaker_id	face	type	bg_path	flag	text_ko	effect	shader	bgm	text_en	text_ja
+interact_room_bedroom_dark_prev						어두워서 잘 보이지 않는다.				It is too dark to see clearly.	暗くてよく見えない。
+						손이 닿을 만한 곳에 <sfx=question_bell><color=#D8E88F>무드등</color>이 있는 것 같다.				There seems to be a <sfx=question_bell><color=#D8E88F>mood lamp</color> within reach.	手の届きそうなところに<sfx=question_bell><color=#D8E88F>ムードライト</color>があるようだ。
+interact_door_living_room_dark_action						문 너머 거실은 윤곽도 잡히지 않을 만큼 어둡다.				The living room beyond the door is too dark to make out even its outline.	ドアの向こうのリビングは、輪郭さえ見えないほど暗い。
+handcuffed_door_living_room_prev						침대 프레임에 묶인 손목이 당겨졌다.				The wrist chained to the bed frame pulled tight.	ベッドフレームにつながれた手首が引っ張られた。
+						이 상태로는 침대에서 벗어날 수 없다.				I cannot get off the bed like this.	この状態ではベッドから離れられない。
+flashlight_door_living_room_prev						이 <color=#D8E88F>손전등</color>의 불빛이면 어둠을 밝히기에 충분하겠다.				<color=#D8E88F>With this, I can reach the living room.</color>	<color=#D8E88F>これならリビングへ出られそうだ。</color>
+interact_room_bedroom_held_prev	yeon	closeeye_n				<type_ms=120>쿨.. <ms=350>쿨..	페이드등장:대사전+클로즈업:대사전			<type_ms=120>Zzz... <ms=350>zzz...	<type_ms=120>すぅ……<ms=350>すぅ……
+						연이가 내 몸을 끌어안고 있어 다른 곳을 조사하기 힘들 것 같다.	페이드퇴장			With Yeon holding me, it will be difficult to search anywhere else.	ヨニに体を抱きしめられていて、ほかの場所を調べるのは難しそうだ。
+						억지로 빠져나오면 연이를 깨울 것이다.				Forcing my way out would wake Yeon.	無理に抜け出せば、ヨニを起こしてしまう。
+						<sfx=question_bell><color=#D8E88F>연이를 깨우지 않고 빠져나갈 방법</color>을 찾아보자.				Let's find <sfx=question_bell><color=#D8E88F>a way to slip free without waking her.</color>	<sfx=question_bell><color=#D8E88F>ヨニを起こさずに抜け出す方法</color>を探してみよう。
+interact_obj_pin_bedroom_prev						협탁 위에 <ms=250><color=#D8E88F>머리핀 하나</color>가 놓여 있다.				A <ms=250><color=#D8E88F>hairpin</color> rests on the nightstand.	ベッドサイドテーブルの上に<ms=250><color=#D8E88F>ヘアピンが一本</color>置かれている。
+						연이가 잠들기 전에 빼 둔 모양이다.				She must have taken it off before falling asleep.	ヨニが眠る前に外しておいたようだ。
+						소리 나지 않게 집어 들었다.				I picked it up without making a sound.	音を立てないように手に取った。
+interact_obj_handcuffs_prev						오른쪽 손목이 침대 프레임에 <ms=250><sfx=question_ominous><color=#FF5A5A>수갑</color>으로 묶여 있다.				My right wrist is secured to the bed frame with <ms=250><sfx=question_ominous><color=#FF5A5A>handcuffs.</color>	右手首がベッドフレームに<ms=250><sfx=question_ominous><color=#FF5A5A>手錠</color>で繋がれている。
+hairpin_obj_handcuffs_prev						만화에서 머리핀으로 자물쇠를 따는 장면을 본 적이 있다.				I once saw someone pick a lock with a hairpin in a comic.	漫画で、ヘアピンを使って鍵を開ける場面を見たことがある。
+						머리핀을 여러 번 구부려 <color=#D8E88F>임시 락픽 도구</color>를 만들었다.	아이템제거=hairpin:대사후+아이템획득=lockpick_set:대사후			I bent the hairpin several times and made an <color=#D8E88F>improvised lockpick</color>.	ヘアピンを何度か曲げ、<color=#D8E88F>即席のピッキング道具</color>を作った。
+						좋아. 이걸로…<ms=350> 해제해 보자.				All right. With this...<ms=350> let's try unlocking it.	よし。これで……<ms=350>外してみよう。
+lockpick_handcuffs_unlocked						달칵.				Click.	カチッ。
+						<sfx=achievement_unlock>수갑이 열렸다.				<sfx=achievement_unlock>The handcuffs opened.	<sfx=achievement_unlock>手錠が開いた。
+						좋아, 다행히 생각보다 쉽게 풀린 것 같다.				Good. Thankfully, that came off more easily than I expected.	よし。幸い、思ったより簡単に外れたようだ。
+	yeon	closeeye_n				<type_ms=120>쿨.. <ms=350>쿨..	페이드등장:대사전+클로즈업:대사전			<type_ms=120>Zzz... <ms=350>zzz...	<type_ms=120>すぅ……<ms=350>すぅ……
+						수갑은 풀었지만, 연이는 여전히 내 몸을 끌어안고 잠들어 있다.	페이드퇴장			The handcuffs are off, but Yeon is still asleep with her arms around me.	手錠は外れたが、ヨニはまだ私の体を抱きしめたまま眠っている。
+						억지로 빠져나오면 연이를 깨울 것이다.				Forcing my way out would wake Yeon.	無理に抜け出せば、ヨニを起こしてしまう。
+						<sfx=question_bell><color=#D8E88F>연이를 깨우지 않고 빠져나갈 방법</color>을 찾아보자.				Let's find <sfx=question_bell><color=#D8E88F>a way to slip free without waking her.</color>	<sfx=question_bell><color=#D8E88F>ヨニを起こさずに抜け出す方法</color>を探してみよう。
+interact_obj_dogdoll_in_prev						침대 아래로 <sfx=bedding_rustle><color=#D8E88F>인형의 발</color>이 삐져나와 있다.				A <sfx=bedding_rustle><color=#D8E88F>plush paw</color> sticks out from beneath the bed.	ベッドの下から、<sfx=bedding_rustle><color=#D8E88F>ぬいぐるみの足</color>がはみ出している。
+interact_obj_dogdoll_in_handcuffed_prev						침대 아래에 <sfx=bedding_rustle><color=#D8E88F>커다란 인형</color>이 있다.				There is a <sfx=bedding_rustle><color=#D8E88F>large plush</color> under the bed.	ベッドの下に<sfx=bedding_rustle><color=#D8E88F>大きなぬいぐるみ</color>がある。
+						하지만 <ms=250><color=#FF5A5A>수갑에 묶인 채로는 팔이 닿지 않는다.</color>				But <ms=250><color=#FF5A5A>I cannot reach it while I am handcuffed.</color>	だが、<ms=250><color=#FF5A5A>手錠につながれたままでは腕が届かない。</color>
+interact_obj_dogdoll_in_post						침대 밑에서 <color=#D8E88F>안고 자는 동물 베개 인형</color>을 찾았다.				I found an <color=#D8E88F>animal-shaped cuddle pillow</color> under the bed.	ベッドの下で<color=#D8E88F>動物の抱き枕</color>を見つけた。
+interact_obj_flashlight_acquired						손전등이다.				A flashlight.	懐中電灯だ。
+						이거라면 천장등을 켜지 않고도 집 안을 살필 수 있을 것 같다.				With this, I should be able to search the house without turning on the lights.	これなら明かりをつけずに家の中を調べられそうだ。
+						전원 버튼을 눌러 봤지만 켜지지 않는다.				I pressed the power button, but nothing happened.	電源ボタンを押してみたが、点かない。
+						뚜껑을 열어 보니… <ms=250><sfx=question_bell><color=#D8E88F>건전지가 빠져 있다.</color>				I opened the battery cover… <ms=250><sfx=question_bell><color=#D8E88F>There is no battery inside.</color>	電池カバーを開けると……<ms=250><sfx=question_bell><color=#D8E88F>乾電池が入っていない。</color>
+interact_obj_mood_light_action						무드등이 희미하게 켜져 있다.				The mood lamp is glowing faintly.	ムードライトがほのかに点いている。
+interact_door_living_room_prev						이 <color=#D8E88F>손전등</color>의 불빛이면 어둠을 밝히기에 충분하겠다.				The beam from this <color=#D8E88F>flashlight</color> should be enough to light the darkness.	この<color=#D8E88F>懐中電灯</color>の光なら、暗闇を照らすには十分そうだ。
+						방을 나가 보자.				Let's leave the room.	部屋を出よう。
+interact_obj_aircond_prev						오래된 에어컨이다.				An old air conditioner.	古いエアコンだ。
+						본체 조작부는 반응하지 않는다.				The controls on the unit do not respond.	本体の操作パネルは反応しない。
+interact_obj_aircond_running						에어컨이 작동 중이다.				The air conditioner is running.	エアコンが動いている。
+interact_obj_clock_prev						꽤 시간이 흐른 것 같다.				It seems quite a bit of time has passed.	かなり時間が経ったようだ。
+						시계는 세 시쯤을 가리키고 있다.				The clock points to around three.	時計は三時ごろを指している。
+						하지만 아까부터 <ms=250><color=#D8E88F>바늘이 움직이지 않는다.</color>				But for a while now, <ms=250><color=#D8E88F>the hands have not moved.</color>	だが、さっきから<ms=250><color=#D8E88F>針が動いていない。</color>
+						아마... <ms=500><sfx=bang><color=#FF5A5A>고장 난 것 같다.</color>				Maybe... <ms=500><sfx=bang><color=#FF5A5A>it is broken.</color>	たぶん……<ms=500><sfx=bang><color=#FF5A5A>壊れているようだ。</color>
+interact_obj_bed_dog_prev						연이가 강아지 인형을 안고 있다.				Yeon is holding the dog plush.	ヨニが犬のぬいぐるみを抱いている。
+						손에 힘이 남아 있다.				Her grip has not gone slack.	手にはまだ力が入っている。
+interact_obj_drawer1_prev						아래쪽 서랍을 열었다.				I opened the bottom drawer.	下の引き出しを開けた。
+interact_obj_drawer2_prev						중간 서랍을 열었다.				I opened the middle drawer.	真ん中の引き出しを開けた。
+						구겨진 옷가지들이 서랍 안쪽에 눌려 있다.				Crumpled clothes are packed into the back.	しわだらけの服が、引き出しの奥に押し込まれている。
+						유용해 보이는 물건은 없었다.				There was nothing useful.	役に立ちそうなものはなかった。
+interact_obj_drawer3_prev						위쪽 서랍을 열었다.				I opened the top drawer.	上の引き出しを開けた。
+						가지런히 접힌 속옷 몇 벌이 들어 있다.				Several sets of neatly folded underwear are inside.	きれいに畳まれた下着が数着入っている。
+						유용해 보이는 물건은 없었다.				There was nothing useful.	役に立ちそうなものはなかった。
+any_popup_drawer_close_prev						서랍을 닫았다.				I closed the drawer.	引き出しを閉めた。
+handcuffed_bedroom_blocked						<sfx=heart_drop><color=#FF5A5A>철컥.<shake><ms=250><sfx=heart_drop> 철컥.<shake></color>				<sfx=heart_drop><color=#FF5A5A>Clink.<shake><ms=250><sfx=heart_drop> Clink.<shake></color>	<sfx=heart_drop><color=#FF5A5A>ガチャッ。<shake><ms=250><sfx=heart_drop>ガチャッ。<shake></color>
+						수갑 때문에 자유롭게 움직일 수 없다.				The handcuffs keep me from moving freely.	手錠のせいで自由に動けない。
+						일단, <sfx=question_bell><color=#D8E88F>수갑을 푸는 게</color> 우선일 것 같다.				For now, <sfx=question_bell><color=#D8E88F>getting these handcuffs off</color> should come first.	ひとまず、<sfx=question_bell><color=#D8E88F>手錠を外すこと</color>が先だろう。
+dogdoll_obj_bed_held_prev						강아지 인형을 가까이 대자, 그녀의 손끝이 조금 움직였다.				When I brought the dog plush closer, her fingertips twitched.	犬のぬいぐるみを近づけると、彼女の指先が少し動いた。
+						품에 안겨 주면 <ms=250><sfx=question_bell><color=#D8E88F>나를 놓을 것 같다.</color>				If I place it in her arms, <ms=250><sfx=question_bell><color=#D8E88F>she might let go of me.</color>	胸元に抱かせれば、<ms=250><sfx=question_bell><color=#D8E88F>私を放しそうだ。</color>
+flashlight_bedroom_obj_bed						손전등으로 그녀의 얼굴에 쏴 보았다.				I shone the flashlight in her face.	懐中電灯で彼女の顔を照らした。
+	yeon	closeeye_n				<type_ms=120>으음..	페이드등장:대사전+클로즈업:대사전			<type_ms=120>Mmm...	<type_ms=120>んん……
+	yeon	closeeye_n					페이드퇴장:대사전+클로즈복귀:대사후				
+						<color=#FF5A5A><sfx=heart_drop><shake>밝은 불빛에, 연이가 잠에서 조금 깬 것 같다.</color>	탈출의지감소1			<color=#FF5A5A><sfx=heart_drop><shake>Yeon seems to have stirred awake.</color>	<color=#FF5A5A><sfx=heart_drop><shake>ヨニが少し目を覚ましたようだ。</color>
+bed_sleep_talk_forever						연이가 뭔가 잠꼬대를 하고 있다.				Yeon is muttering something in her sleep.	ヨニが何か寝言を言っている。
+	yeon	closeeye_n				<type_ms=120><color=#FF5A5A>……이걸로…… 우린…… <ms=450>영원히 함께야…… 음냐……</color>	페이드등장:대사전			<type_ms=120><color=#FF5A5A>...... With this...... we'll be...... <ms=450>together forever...... Mmm......</color>	<type_ms=120><color=#FF5A5A>…………これで……私たち……<ms=450>永遠に一緒だね……むにゃ……</color>
+						뭔진 모르겠지만 오싹하다.	페이드퇴장			I do not know what it means, but it is chilling.	何のことか分からないが、ぞっとする。
+						이상한 꿈을 꾸고 있는 것 같다.				She seems to be having a strange dream.	変な夢を見ているようだ。
+bed_sleep_talk_destroy						연이가 뭔가 잠꼬대를 하고 있다.				Yeon is muttering something in her sleep.	ヨニが何か寝言を言っている。
+	yeon	closeeye_n				<type_ms=120><color=#FF5A5A>……가질 수…… 없다면…… <ms=450>전부 부숴 버리겠어…… 음냐……</color>	페이드등장:대사전			<type_ms=120><color=#FF5A5A>...... If I cannot...... have it...... <ms=450>I'll destroy everything...... Mmm......</color>	<type_ms=120><color=#FF5A5A>…………手に入らない……なら……<ms=450>全部壊してやる……むにゃ……</color>
+						뭔진 모르겠지만 오싹하다.	페이드퇴장			I do not know what it means, but it is chilling.	何のことか分からないが、ぞっとする。
+						이상한 꿈을 꾸고 있는 것 같다.				She seems to be having a strange dream.	変な夢を見ているようだ。
+bed_sleep_talk_nothing_inside						연이가 뭔가 잠꼬대를 하고 있다.				Yeon is muttering something in her sleep.	ヨニが何か寝言を言っている。
+	yeon	closeeye_n				<type_ms=120><color=#FF5A5A>……안에는…… 아무도 없어요…… 음냐……</color>	페이드등장:대사전			<type_ms=120><color=#FF5A5A>...... Inside...... there is no one...... Mmm......</color>	<type_ms=120><color=#FF5A5A>…………中には……誰もいませんね……むにゃ……</color>
+						뭔진 모르겠지만 오싹하다.	페이드퇴장			I do not know what it means, but it is chilling.	何のことか分からないが、ぞっとする。
+						이상한 꿈을 꾸고 있는 것 같다.				She seems to be having a strange dream.	変な夢を見ているようだ。
+bed_sleep_talk_protect						연이가 뭔가 잠꼬대를 하고 있다.				Yeon is muttering something in her sleep.	ヨニが何か寝言を言っている。
+	yeon	closeeye_n				<type_ms=120><color=#FF5A5A>……괜찮아…… 내가…… 지켜줄게…… 있잖아……</color>	페이드등장:대사전			<type_ms=120><color=#FF5A5A>...... It's okay...... I'll...... protect you...... Hey......</color>	<type_ms=120><color=#FF5A5A>…………大丈夫……私が……守ってあげる……ねえ……</color>
+						뭔진 모르겠지만 오싹하다.	페이드퇴장			I do not know what it means, but it is chilling.	何のことか分からないが、ぞっとする。
+						이상한 꿈을 꾸고 있는 것 같다.				She seems to be having a strange dream.	変な夢を見ているようだ。
+interact_obj_remote_prev						서랍장 위에서 <color=#D8E88F>리모컨</color>을 찾았다.				I found a <color=#D8E88F>remote</color> on top of the dresser.	チェストの上で<color=#D8E88F>リモコン</color>を見つけた。
+						모양새로 봐선 에어컨 리모컨 같다.				Judging by its shape, it looks like an air-conditioner remote.	形からすると、エアコンのリモコンらしい。
+interact_obj_mood_light_post						왼손을 뻗어 불을 켜니, <ms=250><color=#D8E88F>나는 연이와 함께 침대에 누워 있었다.</color>				I reached out with my left hand and turned on the light. <ms=250><color=#D8E88F>I found myself lying in bed beside Yeon.</color>	左手を伸ばして明かりをつけると、<ms=250><color=#D8E88F>私はヨニと一緒にベッドに横たわっていた。</color>
+	yeon	closeeye_n				쿨.. <ms=350>쿨..	페이드등장:대사전+클로즈업:대사전			Zzz... <ms=350>zzz...	すぅ……<ms=350>すぅ……
+	yeon	closeeye_n					페이드퇴장:대사전				
+						연이는 내 몸을 끌어안고 있다.				Yeon has her arms around my body.	ヨニは私の体を抱きしめている。
+						오른손을 당기자, <sfx=heart_drop><shake><color=#FF5A5A>수갑이 침대 프레임에 걸렸다.</color>				When I pulled my right hand, <sfx=heart_drop><shake><color=#FF5A5A>the handcuff caught against the bed frame.</color>	右手を引くと、<sfx=heart_drop><shake><color=#FF5A5A>手錠がベッドフレームに引っかかった。</color>
+						잠깐.<ms=300> <sfx=question_ominous><shake><color=#FF5A5A>수갑?!</color>				Wait.<ms=300> <sfx=question_ominous><shake><color=#FF5A5A>Handcuffs?!</color>	待って。<ms=300> <sfx=question_ominous><shake><color=#FF5A5A>手錠!?</color>
+						오른손이 자유롭지 못한 이유는 수갑 때문이었다.				The handcuffs were why my right hand could not move freely.	右手が自由に動かせなかったのは、手錠のせいだった。
+						현관의 잠금장치도 그렇고, 연이가 이런 짓을 한 걸까?				Considering the lock on the front door too, did Yeon do all this?	玄関の鍵もそうだが、ヨニが全部やったのだろうか？
+						…지금은 알 수 없다.				...I cannot tell yet.	……今は分からない。
+						일단, <sfx=question_bell><color=#D8E88F>수갑을 푸는 게</color> 우선일 것 같다.				For now, <sfx=question_bell><color=#D8E88F>getting these handcuffs off</color> should come first.	ひとまず、<sfx=question_bell><color=#D8E88F>手錠を外すこと</color>が先だろう。
+dogdoll_obj_bed_held_post						연이가 인형을 끌어안자, <color=#D8E88F>내 몸을 감싸고 있던 팔</color>에 힘이 풀렸다.				As Yeon hugged the plush, <color=#D8E88F>the arms wrapped around my body</color> relaxed.	ヨニがぬいぐるみを抱くと、<color=#D8E88F>私の体を抱いていた腕</color>から力が抜けた。
+	yeon	closeeye_n				<type_ms=120>어디.. <ms=500>가...	페이드등장:대사전+클로즈업:대사전			<type_ms=120>Where... <ms=500>are you going...?	<type_ms=120>どこ……<ms=500>行くの……
+	hero					<sfx=hit><shake><color=#FF5A5A>(들켰나?!)</color>	빨강ON:대사전+빨강OFF:대사후			<sfx=hit><shake><color=#FF5A5A>(Did she catch me?!)</color>	<sfx=hit><shake><color=#FF5A5A>(バレたか!?)</color>
+	yeon	closeeye_n				<type_ms=120>음냐음냐... <ms=450>쿨.... <ms=500><sfx=hit><shake>드르렁... <ms=350><sfx=hit><shake>컥. <ms=300>...쿨...				<type_ms=120>Mmm... <ms=450>zzz... <ms=500><sfx=hit><shake>snnnrrr... <ms=350><sfx=hit><shake>snrk. <ms=300>...zzz...	<type_ms=120>むにゃむにゃ……<ms=450>すぅ……<ms=500><sfx=hit><shake>ぐごぉ……<ms=350><sfx=hit><shake>ぐっ。<ms=300>……すぅ……
+	yeon	closeeye_n					페이드퇴장:대사전				
+	hero					(휴... <ms=450>잠꼬대인가.)				(Phew... <ms=450>Was she just talking in her sleep?)	(ふう……<ms=450>寝言か。)
+						연이는 여전히 편안하게 깊이 잠들어 있다.				Yeon is still sleeping peacefully.	ヨニは今も安らかにぐっすり眠っている。
+						<sfx=achievement_unlock>이제 <color=#D8E88F>방 안을 자유롭게 둘러볼 수 있다.</color>				<sfx=achievement_unlock>Now <color=#D8E88F>I can freely search the room.</color>	<sfx=achievement_unlock>これで<color=#D8E88F>部屋の中を自由に調べられる。</color>
+aircon_remote_obj_aircond_post						<sfx=light_switch>리모컨의 전원 버튼을 눌렀다.				<sfx=light_switch>I pressed the remote's power button.	<sfx=light_switch>リモコンの電源ボタンを押した。
+						차가운 바람이 곧장 침대 쪽으로 흘러갔다.				Cold air flowed straight toward the bed.	冷たい風がまっすぐベッドへ流れた。
+	yeon	closeeye_n				<type_ms=120>으음..	페이드등장:대사전+클로즈업:대사전			<type_ms=120>Mmm...	<type_ms=120>んん……
+	yeon	closeeye_n					페이드퇴장:대사전+클로즈복귀:대사후				
+						<color=#FF5A5A><sfx=heart_drop><shake>살짝 추운지 그녀가 이불을 끌어안았다.<br><ms=500>그녀가 잠에서 조금 깬 것 같다.</color>	탈출의지감소1			<color=#FF5A5A><sfx=heart_drop><shake>Perhaps feeling cold, she pulled the blanket close.<br><ms=500>She seems to have stirred awake.</color>	<color=#FF5A5A><sfx=heart_drop><shake>少し寒いのか、彼女は布団を抱き寄せた。<br><ms=500>少し目を覚ましたようだ。</color>

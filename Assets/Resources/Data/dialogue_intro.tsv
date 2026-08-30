@@ -1,0 +1,98 @@
+id	speaker_id	face	type	bg_path	flag	text_ko	effect	shader	bgm	text_en	text_ja
+intro			CENTER	Sprites/bg_black		<ms=1000><type_sfx=typewriter_type><type_ms=100>2012년 10월 9일 화요일 저녁			intro_neighbor_days	<ms=1000><type_sfx=typewriter_type><type_ms=100>Tuesday evening, October 9, 2012	<ms=1000><type_sfx=typewriter_type><type_ms=100>2012年10月9日　火曜日　夕方
+							즉시검정ON				
+				Sprites/bg_apart		이 아파트에 이사 온 뒤,<br>낯선 생활은 금방 익숙해졌다.	검정OFF			After moving into this apartment,<br>the unfamiliar life quickly became familiar.	このアパートに越してから、<br>慣れない暮らしにもすぐ馴染んだ。
+						동네는 조용했고 사람들은 친절했다.<br>좋은 이웃까지 만났으니, 운도 좋았지.				The neighborhood was quiet and the people were kind.<br>With a good neighbor too, I had been lucky.	町は静かで、人も親切だった。<br>いい隣人にも出会えたのだから、運もよかった。
+						처음에는 쓰레기장을 알려 줬고,				First, she showed me where to take out the trash,	最初は、ごみ捨て場を教えてくれて、
+						다음에는 택배를 대신 받아 줬다.				then she accepted a package for me.	次は、留守中の荷物を代わりに受け取ってくれた。
+						가끔은 반찬까지.				Sometimes, even side dishes.	時には、おかずまで。
+						이름은 연이.				Her name was Yeon.	名前はヨニ。
+						타지에서 온 나를 먼저 챙겨 주는,<br>고마운 이웃이었다.				A kind neighbor who looked out for me,<br>a newcomer from out of town.	よそから来た私を気にかけてくれる、<br>ありがたい隣人だった。
+						혼자 어색하게 서 있는 사람을<br>그냥 지나치지 못하는 성격인 걸까.				Perhaps she simply could not walk past<br>someone standing awkwardly alone.	一人で所在なさそうにしている人を、<br>放っておけない性格なのだろうか。
+						오늘은 빈 밀폐용기를 돌려주러<br>옆집 문 앞에 섰다.				Today, I stood at the door next to mine<br>to return the empty container.	今日は空の密閉容器を返すため、<br>隣の部屋の前に立った。
+						<sfx=doorbell_long>초인종을 눌렀다.				<sfx=doorbell_long>I pressed the doorbell.	<sfx=doorbell_long>インターホンを押した。
+						잠시 후 문이 열렸다.				A moment later, the door opened.	しばらくして、ドアが開いた。
+	yeon	default				아.	우등장			Oh.	あ。
+	yeon	smile				<ms=250>오셨네요.				<ms=250>You're here.	<ms=250>来てくれたんですね。
+	hero					저번에 주신 거 잘 먹었어요.				Thank you for the food. It was delicious.	この前のおかず、おいしくいただきました。
+						나는 밀폐용기를 내밀었다.				I held out the container.	密閉容器を差し出した。
+						연이는 안쪽을 확인하고 웃었다.				Yeon looked inside and smiled.	ヨニは中を確かめて、笑った。
+	yeon	smile				깨끗하게 씻어 주셨네요!	통통			You washed it so thoroughly!	きれいに洗ってくれたんですね！
+	yeon	smile				그냥 주셔도 됐는데.				You could have returned it as it was.	洗わずに、そのまま返してくれてもよかったのに。
+	hero					빌린 거니까요.				I borrowed it, after all.	借りたものですから。
+	yeon	smile				후후, 섬세하시네요.				Hehe. You're very considerate.	ふふ、几帳面なんですね。
+						연이의 집 안에서 카레 냄새가 났다.				The smell of curry drifted from inside Yeon's apartment.	ヨニの部屋から、カレーの匂いがした。
+	yeon	default				혹시... <ms=300>저녁 드셨어요?				By any chance... <ms=300>have you had dinner?	もしかして……<ms=300>夕食はもう食べましたか？
+	hero					아뇨, 아직 안 먹었습니다.				No, not yet.	いえ、まだです。
+	yeon	default				마침 카레를 너무 많이 만들어서요.				I happened to make far too much curry.	ちょうど、カレーを作りすぎちゃって。
+	yeon	smile				조금 드시고 가실래요?				Would you like to have some before you go?	少し食べていきませんか？
+	hero					그래도 될까요? <ms=250>그러면 사양 않고 먹고 가겠습니다.				Would that be all right? <ms=250>Then I will gladly accept.	いいんですか？<ms=250>では、お言葉に甘えて。
+	yeon	smile				네. <ms=250>좋아요.	통통			Yes. <ms=250>I'd like that.	はい。<ms=250>どうぞ。
+	hero					그럼, 실례합니다.				Then, pardon me.	では、お邪魔します。
+							검정ON				
+				Sprites/bg_entrance		현관에 들어서자 은은한 꽃향기.<br>집 안은 빈틈없이 정돈돼 있었다.	검정OFF			A faint floral scent greeted me in the entryway.<br>The apartment was immaculately arranged.	玄関に入ると、ほのかな花の香り。<br>部屋は隙なく整えられていた。
+	yeon	default				잠깐! 화장실은 저쪽이에요. 손 먼저 씻고 오세요.				Wait! The bathroom is over there. Wash your hands first.	待って！お手洗いはあちらです。先に手を洗ってきてください。
+							검정ON				
+							즉시퇴장				
+				Sprites/bg_kitchen		손을 씻고 나오자,<br>식탁에는 카레가 차려져 있었다.	검정OFF			When I came back from washing my hands,<br>curry was already waiting on the table.	手を洗って戻ると、<br>食卓にはカレーが用意されていた。
+	yeon	smile				여기 앉으세요.				Sit here, please.	こちらに座ってください。
+						내가 앉자,<br>연이도 맞은편에 자리 잡았다.				When I sat down,<br>Yeon settled into the seat across from me.	私が座ると、<br>ヨニも向かいに腰を下ろした。
+						그런데 그녀 앞은 비어 있었다.				But the space in front of her was empty.	けれど、彼女の前には何もなかった。
+	hero					연이 씨는 안 드세요?				Aren't you having any, Yeon?	ヨニさんは食べないんですか？
+	yeon	smile				저는 먹었어요. 드시는 것만 봐도 좋아요.				I already ate. I like watching you eat.	私はもう食べました。食べているところを見ているだけで嬉しいんです。
+						카레를 한입 먹었다.				I took a bite of the curry.	カレーを一口食べた。
+						따뜻한 향신료 맛이 입 안에 퍼졌다.				The warm taste of spices spread through my mouth.	温かな香辛料の味が口の中に広がった。
+	yeon	default				어때요?				How is it?	どうですか？
+	hero					맛있습니다.				It is delicious.	おいしいです。
+	yeon	smile				다행이에요. <ms=250>입맛에 맞을지 조금 걱정했어요.	통통			What a relief. <ms=250>I was a little worried it might not suit your taste.	よかった。<ms=250>お口に合うか、少し心配だったんです。
+	yeon	sly				그럼 다음에도 해드릴게요.				Then I will make it for you again.	では、また作ってあげますね。
+						연이는 나를 빤히 바라보았다.				Yeon stared intently at me.	ヨニは私をじっと見つめていた。
+	hero					그렇게 보고 계시면 좀 민망한데요.				It is a little embarrassing when you watch me like that.	そんなに見られると、少し食べづらいのですが。
+	yeon	shy				..! 죄송해요 제가 실례했어요.				...! I'm sorry. That was rude of me.	……！すみません、失礼しました。
+	yeon	shy				잘 드시는 게 보기 좋아서 <ms=250>무심코 멍하니 봐버렸네요.				You looked so happy eating that<ms=250>I caught myself staring.	おいしそうに食べてくれるのが嬉しくて、<ms=250>つい見入ってしまいました。
+						연이는 빈 물컵을 챙겨 자리에서 일어났다.				Yeon picked up the empty glass and rose from her seat.	ヨニは空のグラスを手に取り、席を立った。
+	yeon	smile				물 좀 더 가져올게요.				I'll bring you some more water.	お水をもう少し持ってきますね。
+							페이드퇴장				
+						연이가 없는 동안,<br>카레를 몇 숟가락 더 먹었다.				While Yeon was away,<br>I ate a few more spoonfuls of curry.	ヨニがいない間に、<br>カレーをもう数口食べた。
+						대화가 끊기자 숟가락 소리만 남았다.				With the conversation gone, only the clink of my spoon remained.	会話が途切れると、スプーンの音だけが残った。
+						접시에는 카레 자국만 남았다.				Only streaks of curry remained on the plate.	皿にはカレーの跡だけが残った。
+						잘 먹었다는 인사만 하고 돌아가면 되겠지.				I would thank her for the meal and head home.	ごちそうさまと伝えて、帰ればいいだろう。
+	hero					응...?	블러ON	Warn	intro_uneasy_curry	Huh...?	ん……？
+						시야가 기울었다.				My vision tilted.	視界が傾いた。
+						손끝에서 힘이 빠지고, 머릿속이 뿌옇게 흐려졌다.				Strength drained from my fingertips, and my thoughts turned hazy.	指先から力が抜け、頭の中がぼんやりと霞んだ。
+						일단 집으로 돌아가야 한다.<br>식탁을 짚고 몸을 일으켰다.				First, I had to get home.<br>I braced myself on the table and stood.	ひとまず家に戻らないと。<br>食卓に手をつき、体を起こした。
+	yeon	default				어머. <ms=350>벌써 가시려고요?	페이드등장			Oh my. <ms=350>Are you leaving already?	あら。<ms=350>もう帰るんですか？
+	hero					죄송합니다. <ms=250>몸이 좀 안 좋네요.				I'm sorry. <ms=250>I'm not feeling very well.	すみません。<ms=250>少し具合が悪くて。
+						연이는 물컵을 내려놓았다.				Yeon set down the glass of water.	ヨニは水のグラスを置いた。
+	yeon	smile				그럼 쉬어야겠네요.				Then you should rest.	それなら、休まないといけませんね。
+	hero					네, 오늘은... <ms=250>이만 가보겠습니다.				Yes, for today... <ms=250>I should be going.	はい、今日は……<ms=250>これで失礼します。
+							검정ON+즉시퇴장				
+				Sprites/bg_black			검정OFF				
+						몇 걸음뿐인 복도가<br>끝없이 늘어졌다.				The hallway was only a few steps long,<br>yet it stretched without end.	ほんの数歩の廊下が、<br>どこまでも伸びていった。
+							검정ON	Danger	entrance_lock_unease		
+				Sprites/bg_entrance		벽을 짚어 가며 겨우 현관에 닿았다.	검정OFF			Bracing myself against the wall, I barely reached the entrance.	壁を伝い、ようやく玄関にたどり着いた。
+						손잡이를 돌리려 했지만,				I tried to turn the handle, but—	ドアノブを回そうとしたが、
+	yeon	noeye					페이드등장				
+						연이가 문 앞을 가로막았다.				Yeon blocked the doorway.	ヨニがドアの前に立ちはだかった。
+						왜 연이 씨가 문을 막는 거지?				Why was Yeon blocking the door?	どうしてヨニさんがドアを塞いでいるんだ？
+	hero					연이 씨...?				Yeon...?	ヨニさん……？
+	yeon	noeye				갈 수 없어요.				You can't leave.	帰れませんよ。
+						연이가 한 걸음 다가왔다.				Yeon took a step toward me.	ヨニが一歩、こちらへ近づいた。
+	yeon	darkness				푹 <ms=350>쉬세요.	클로즈업			Get some<ms=350>rest.	ゆっくり<ms=350>休んでください。
+						바닥이 눈앞으로 솟구쳤다.				The floor surged up before my eyes.	床が目の前へせり上がった。
+							검정ON		none		
+							즉시퇴장+블러OFF	Default			
+									night_house		
+				Sprites/bg_black			검정OFF				
+			CENTER			...				...	……
+			CENTER			......				......	…………
+							검정ON				
+				none		얼마나 지났을까.	검정OFF			How long had it been?	どれくらい経ったのだろう。
+						눈을 떴지만,<br>보이는 건 어둠뿐이었다.				I opened my eyes,<br>but there was nothing to see but darkness.	目を開けても、<br>見えるのは闇だけだった。
+						아까의 어지럼증은 사라졌다.				The dizziness from earlier was gone.	さっきまでのめまいは消えていた。
+						몸을 일으키려는데…				I tried to sit up.	体を起こそうとした。
+						…뭐지? 오른손이 움직이지 않는다.				…What? My right hand will not move.	……何だ？右手が動かない。
+						당겨 봐도 꼼짝없다.				Even when I pulled, it did not budge.	引っ張っても、びくともしない。
+						무엇에 걸린 거지?<br>어두워서 보이지 않는다.				What was it caught on?<br>It was too dark to see.	何に引っかかっている？<br>暗くて見えない。
+						왼손은 움직인다.<br>그나마 다행인가.				My left hand moved.<br>Was that at least something?	左手は動く。<br>それだけでもましか。
+						일단, 주변을 <ms=250><color=#D8E88F>밝힐 만한 물건</color>부터 찾아보자.				First, I should look for <ms=250><color=#D8E88F>something to light up the area.</color>	まずは、周囲を<ms=250><color=#D8E88F>照らせそうな物</color>を探そう。

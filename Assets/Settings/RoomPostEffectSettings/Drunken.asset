@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2f6b7d843e84b4b9d6a25b4a8dbf9e1, type: 3}
+  m_Name: Drunken
+  m_EditorClassIdentifier: 
+  blurRadius: 0.8
+  intensity: 0.2
+  crtScanlineIntensity: 0
+  flickerIntensity: 0.52
+  flickerSpeed: 2
+  flickerLineIntensity: 0.5
+  noiseIntensity: 0.04
+  noiseScale: 80
+  noiseSpeed: 8
+  paletteIntensity: 0.25
+  paletteColorCount: 8
+  paletteDitherIntensity: 0.33
+  paletteColor0: {r: 0.03, g: 0.01, b: 0.08, a: 1}
+  paletteColor1: {r: 0.08, g: 0.1, b: 0.42, a: 1}
+  paletteColor2: {r: 0.05, g: 0.55, b: 0.72, a: 1}
+  paletteColor3: {r: 0.1, g: 0.72, b: 0.38, a: 1}
+  paletteColor4: {r: 0.72, g: 0.82, b: 0.12, a: 1}
+  paletteColor5: {r: 0.95, g: 0.38, b: 0.08, a: 1}
+  paletteColor6: {r: 0.85, g: 0.08, b: 0.42, a: 1}
+  paletteColor7: {r: 0.92, g: 0.78, b: 1, a: 1}
+  glitchIntensity: 0.35
+  glitchInterval: 0.9
+  glitchSliceCount: 2
+  glitchSliceHeight: 0.08
+  glitchSliceWidth: 0.55
+  glitchHorizontalShift: 0.1
+  glitchVerticalShift: 0.08
+  chromaticSplit: 0.018
+  warpIntensity: 0.028
+  warpSpeed: 1.4
+  warpScale: 7
+  hueShift: 0.2
+  hueShiftSpeed: 0.09
+  vignetteIntensity: 0.18
+  vignettePulseSpeed: 0.5
+  bgmPitch: 1.15

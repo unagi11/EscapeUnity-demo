@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2f6b7d843e84b4b9d6a25b4a8dbf9e1, type: 3}
+  m_Name: Danger
+  m_EditorClassIdentifier: 
+  blurRadius: 0.6
+  intensity: 0.08
+  crtScanlineIntensity: 0
+  flickerIntensity: 0.62
+  flickerSpeed: 2
+  flickerLineIntensity: 0.62
+  noiseIntensity: 0.02
+  noiseScale: 125
+  noiseSpeed: 7
+  paletteIntensity: 0.86
+  paletteColorCount: 8
+  paletteDitherIntensity: 0.33
+  paletteColor0: {r: 0.025, g: 0.035, b: 0.08, a: 1}
+  paletteColor1: {r: 0.08, g: 0.08, b: 0.18, a: 1}
+  paletteColor2: {r: 0.16, g: 0.09, b: 0.24, a: 1}
+  paletteColor3: {r: 0.28, g: 0.12, b: 0.25, a: 1}
+  paletteColor4: {r: 0.35, g: 0.24, b: 0.16, a: 1}
+  paletteColor5: {r: 0.28, g: 0.46, b: 0.32, a: 1}
+  paletteColor6: {r: 0.4, g: 0.65, b: 0.58, a: 1}
+  paletteColor7: {r: 0.72, g: 0.78, b: 0.66, a: 1}
+  glitchIntensity: 0.65
+  glitchInterval: 0.7
+  glitchSliceCount: 2
+  glitchSliceHeight: 0.06
+  glitchSliceWidth: 0.55
+  glitchHorizontalShift: 0.1
+  glitchVerticalShift: 0.05
+  chromaticSplit: 0.004
+  warpIntensity: 0.004
+  warpSpeed: 0.8
+  warpScale: 11
+  hueShift: 0
+  hueShiftSpeed: 0
+  vignetteIntensity: 0.68
+  vignettePulseSpeed: 0.9
+  bgmPitch: 0.85

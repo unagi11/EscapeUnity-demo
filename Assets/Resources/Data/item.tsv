@@ -1,0 +1,9 @@
+id	icon_idx	name_ko	name_en	name_ja	desc_ko	desc_en	desc_ja	com_item_id_0	com_item_id_1	com_item_id_2	decom_item_id_0	decom_item_id_1	start_item
+interact	2	행동	Use	操作	대상을 살펴보거나 만지고, 이동한다.	Inspect, touch, or move through the environment.	対象を調べたり、触れたり、移動したりする。	none	none	none	none	none	true
+dogdoll	4	인형	Plush	ぬいぐるみ	안고 잘 수 있는 강아지 인형이다.	A dog plush that looks comfortable to hug while sleeping.	抱いて眠れそうな犬のぬいぐるみだ。	none	none	none	none	none	false
+aircon_remote	7	A/C 리모컨	A/C Remote	A/Cリモコン	오래된 에어컨 리모컨이다. 버튼 몇 개가 닳아 있다.	An old A/C remote. Some of the buttons are worn down.	古いA/Cリモコンだ。いくつかのボタンがすり減っている。	none	none	none	battery	none	false
+battery	8	건전지	Battery	乾電池	아직 전력이 남아 있는 건전지다.	A battery that still has some power left.	まだ電力が残っている乾電池だ。	none	none	none	none	none	false
+flashlight_empty	9	손전등	Flashlight	懐中電灯	건전지가 빠져 있는 손전등이다.	A flashlight with no battery inside.	乾電池が抜かれている懐中電灯だ。	none	none	none	none	none	false
+flashlight	10	손전등	Flashlight	懐中電灯	건전지를 넣어 사용할 수 있게 된 손전등이다.	A flashlight that works now that a battery is inside.	乾電池を入れて使えるようになった懐中電灯だ。	flashlight_empty	battery	none	none	none	false
+hairpin	38	머리핀	Hairpin	ヘアピン	연이가 잠들기 전 협탁 위에 벗어 둔 머리핀이다.	A hairpin Yeon took off and left on the bedside table before falling asleep.	ヨニが眠る前に外してベッドサイドテーブルの上に置いたヘアピンだ。	none	none	none	none	none	false
+lockpick_set	39	락픽	Lockpick	ロックピック	머리핀으로 만든 임시 락픽 도구이다. 한 번 정도 더 쓸 수 있을 것 같다.	An improvised lockpick made from a hairpin. It may work once more.	ヘアピンで作った即席のピッキング道具だ。あと一度くらい使えそうだ。	none	none	none	none	none	false

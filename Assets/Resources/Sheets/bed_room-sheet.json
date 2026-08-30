@@ -1,0 +1,217 @@
+{ "frames": 
+   "drw_room__frame_0": {
+    "frame": { "x": 1, "y": 1, "w": 256, "h": 192 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 256, "h": 192 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "drw_rug__frame_0": {
+    "frame": { "x": 517, "y": 1, "w": 224, "h": 80 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 16, "y": 112, "w": 224, "h": 80 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "dor_living_room__frame_0": {
+    "frame": { "x": 647, "y": 83, "w": 48, "h": 96 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 160, "y": 16, "w": 48, "h": 96 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "obj_dogdoll_in__frame_0": {
+    "frame": { "x": 247, "y": 195, "w": 48, "h": 32 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 64, "y": 160, "w": 48, "h": 32 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "drw_desk__frame_0": {
+    "frame": { "x": 297, "y": 195, "w": 48, "h": 32 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 64, "y": 96, "w": 48, "h": 32 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "obj_drawer1__frame_0": {
+    "frame": { "x": 347, "y": 195, "w": 48, "h": 32 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 112, "y": 96, "w": 48, "h": 32 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "obj_drawer2__frame_0": {
+    "frame": { "x": 397, "y": 195, "w": 48, "h": 32 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 112, "y": 80, "w": 48, "h": 32 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "obj_drawer3__frame_0": {
+    "frame": { "x": 447, "y": 195, "w": 48, "h": 32 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 112, "y": 64, "w": 48, "h": 32 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "obj_clock__frame_0": {
+    "frame": { "x": 531, "y": 213, "w": 32, "h": 32 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 80, "y": 32, "w": 32, "h": 32 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "obj_mood_light__frame_0": {
+    "frame": { "x": 729, "y": 149, "w": 32, "h": 48 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 80, "y": 64, "w": 32, "h": 48 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "obj_bed__frame_0": {
+    "frame": { "x": 1, "y": 195, "w": 128, "h": 112 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 16, "y": 80, "w": 128, "h": 112 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "obj_yeon__frame_0": {
+    "frame": { "x": 729, "y": 199, "w": 32, "h": 48 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 48, "y": 96, "w": 32, "h": 48 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "obj_pin__frame_0": {
+    "frame": { "x": 599, "y": 213, "w": 32, "h": 16 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 64, "y": 96, "w": 32, "h": 16 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "obj_human__frame_0": {
+    "frame": { "x": 697, "y": 83, "w": 48, "h": 64 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 16, "y": 96, "w": 48, "h": 64 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "obj_human_unlock__frame_0": {
+    "frame": { "x": 131, "y": 195, "w": 48, "h": 64 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 32, "y": 96, "w": 48, "h": 64 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "obj_handcuffs__frame_0": {
+    "frame": { "x": 565, "y": 213, "w": 32, "h": 32 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 112, "w": 32, "h": 32 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "obj_bed_dog__frame_0": {
+    "frame": { "x": 497, "y": 213, "w": 32, "h": 48 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 32, "y": 96, "w": 32, "h": 48 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "obj_aircond__frame_0": {
+    "frame": { "x": 647, "y": 181, "w": 80, "h": 48 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 16, "w": 80, "h": 48 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "obj_remote__frame_0": {
+    "frame": { "x": 181, "y": 229, "w": 32, "h": 16 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 112, "y": 64, "w": 32, "h": 16 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "black__frame_0": {
+    "frame": { "x": 259, "y": 1, "w": 256, "h": 192 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 256, "h": 192 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "bg__frame_0": {
+    "frame": { "x": 517, "y": 83, "w": 128, "h": 128 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 64, "y": 32, "w": 128, "h": 128 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   },
+   "obj_flash_empty__frame_0": {
+    "frame": { "x": 181, "y": 195, "w": 64, "h": 32 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 96, "y": 80, "w": 64, "h": 32 },
+    "sourceSize": { "w": 256, "h": 192 },
+    "duration": 100
+   }
+  },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3.18.2-x64",
+  "image": "bed_room-sheet.png",
+  "format": "RGBA8888",
+  "size": { "w": 762, "h": 308 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "default", "from": 0, "to": 0, "direction": "forward", "color": "#000000ff" }
+  ],
+  "layers": [
+   { "name": "drw_room", "opacity": 255, "blendMode": "normal" },
+   { "name": "drw_rug", "opacity": 255, "blendMode": "normal" },
+   { "name": "dor_living_room", "opacity": 255, "blendMode": "normal" },
+   { "name": "obj_dogdoll_in", "opacity": 255, "blendMode": "normal" },
+   { "name": "drw_desk", "opacity": 255, "blendMode": "normal" },
+   { "name": "obj_drawer1", "opacity": 255, "blendMode": "normal" },
+   { "name": "obj_drawer2", "opacity": 255, "blendMode": "normal" },
+   { "name": "obj_drawer3", "opacity": 255, "blendMode": "normal" },
+   { "name": "obj_clock", "opacity": 255, "blendMode": "normal" },
+   { "name": "obj_mood_light", "opacity": 255, "blendMode": "normal" },
+   { "name": "obj_bed", "opacity": 255, "blendMode": "normal" },
+   { "name": "obj_yeon", "opacity": 255, "blendMode": "normal" },
+   { "name": "obj_pin", "opacity": 255, "blendMode": "normal" },
+   { "name": "obj_human", "opacity": 168, "blendMode": "normal" },
+   { "name": "obj_human_unlock", "opacity": 168, "blendMode": "normal" },
+   { "name": "obj_handcuffs", "opacity": 255, "blendMode": "normal" },
+   { "name": "obj_bed_dog", "opacity": 255, "blendMode": "normal" },
+   { "name": "obj_aircond", "opacity": 255, "blendMode": "normal" },
+   { "name": "obj_remote", "opacity": 255, "blendMode": "normal" },
+   { "name": "popup_drawer" },
+   { "name": "black", "group": "popup_drawer", "opacity": 204, "blendMode": "normal" },
+   { "name": "bg", "group": "popup_drawer", "opacity": 255, "blendMode": "normal" },
+   { "name": "obj_flash_empty", "group": "popup_drawer", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

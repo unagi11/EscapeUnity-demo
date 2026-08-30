@@ -1,0 +1,22 @@
+id	speaker_id	face	type	bg_path	flag	text_ko	effect	shader	bgm	text_en	text_ja
+cannot_move_dark						어두워서 잘 보이지 않는다.				It is too dark to see clearly.	暗くてよく見えない。
+						<ms=250><sfx=question_bell><color=#D8E88F>무드등</color>부터 켜자.				It would be best to turn on the <ms=250><sfx=question_bell><color=#D8E88F>mood lamp</color>.	<ms=250><sfx=question_bell><color=#D8E88F>ムードライト</color>をつけたほうがよさそうだ。
+health_game_over_yeon	yeon	noeye_n				거기서 뭐 해요?	페이드등장		basement_dread	What are you doing over there?	そこで何をしているんですか？
+	yeon	darkness_n				너무 시끄러워서 깼잖아요.	클로즈업			You were so loud, you woke me up.	うるさくて、起きちゃったじゃないですか。
+	yeon	darkness_n				아... 뭐야. 탈출하려고 하고 있었어요?				Oh... what is this? Were you trying to escape?	あ……何ですか。逃げようとしていたんですか？
+	yeon	darkness_n				안.<ms=300>돼.<ms=300>요.<ms=300> 밤에는 제대로 휴식을 취해야죠.				No.<ms=300> You.<ms=300> Cannot.<ms=300> You need proper rest at night.	だ<ms=300>・め<ms=300>・で<ms=300>・す。夜はきちんと休まないと。
+	yeon	darkness_n				어서 <sfx=bang>자세요!	자동			Now, <sfx=bang>go to sleep!	ほら、<sfx=bang>寝てください！
+							전체노이즈ON+자동+BGM구간반복				
+							대기=3000+자동				
+							타이틀로+자동				
+move_room						이동합니다.				Moving.	移動します。
+cannot_use_item						여기에는 쓸 수 없을 것 같다.				I do not think I can use this here.	ここでは使えそうにない。
+cannot_interact						지금은 할 수 있는 게 없어 보인다.				There does not seem to be anything I can do right now.	今はできることがなさそうだ。
+use_flashlight						손전등을 비추었다.				I shone the flashlight over it.	懐中電灯で照らした。
+item_acquired						<sfx=item_acquire><color=#D8E88F>[{0}]</color>을(를) 획득했습니다.				<sfx=item_acquire>Obtained <color=#D8E88F>[{0}]</color>.	<sfx=item_acquire><color=#D8E88F>［{0}］</color>を手に入れた。
+info_acquired						<sfx=item_acquire><color=#8FC7FF>[{0}]</color>을(를) 획득했습니다.				<sfx=item_acquire>Obtained <color=#8FC7FF>[{0}]</color>.	<sfx=item_acquire><color=#8FC7FF>［{0}］</color>を手に入れた。
+item_used						<sfx=item_use>{0}을(를) 소모했습니다.				<sfx=item_use>Consumed {0}.	<sfx=item_use>{0}を消費した。
+item_lost						{0}{1} 조합했습니다.				Combined {0}.	{0}を組み合わせた。
+item_disassembled						<sfx=item_use>{0}{1} 분해했습니다.				<sfx=item_use>Disassembled {0}.	<sfx=item_use>{0}を分解した。
+escape_will_decreased						<sfx=heart_drop><shake><color=#FF5A5A>마음이 조급해졌다.</color> <ms=500><color=#FFD95A>애써 붙들던 평정심</color>이 흔들렸다.				<sfx=heart_drop><shake><color=#FF5A5A>I feel more anxious.</color> <ms=500><color=#FFD95A>The composure I was clinging to</color> begins to waver.	<sfx=heart_drop><shake><color=#FF5A5A>気持ちが焦り始めた。</color> <ms=500><color=#FFD95A>どうにか保っていた平静</color>が揺らいだ。
+escape_will_increased						<sfx=heal><color=#D8E88F>기분이 한결 나아졌다.</color> <ms=500><color=#FFD95A>흐트러졌던 평정심</color>을 되찾았다.				<sfx=heal><color=#D8E88F>I feel much better.</color> <ms=500><color=#FFD95A>I regain my lost composure.</color>	<sfx=heal><color=#D8E88F>気分がずいぶん楽になった。</color> <ms=500><color=#FFD95A>乱れていた平静</color>を取り戻した。
