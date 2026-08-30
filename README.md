@@ -2,7 +2,11 @@
 
 `EscapeUnity`의 포트폴리오 제출용 공개 데모 저장소입니다. 원본 게임 전체가 아니라 타이틀에서 시작해 인트로와 침실 퍼즐을 체험하는 짧은 수직 슬라이스만 포함합니다.
 
-▶ [EscapeUnity 데모 플레이 영상](https://youtu.be/Ct5GcwSQ2rg?si=m8yjc33vhWTHBqdl)
+## 트레일러
+
+[![EscapeUnity 트레일러](https://img.youtube.com/vi/Ct5GcwSQ2rg/maxresdefault.jpg)](https://youtu.be/Ct5GcwSQ2rg?si=m8yjc33vhWTHBqdl)
+
+이미지를 클릭하면 YouTube에서 트레일러를 볼 수 있습니다.
 
 ## 데모 범위
 
