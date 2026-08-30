@@ -59,6 +59,7 @@ ExportedObj/
 *.unityproj
 *.sln
 *.slnx
+.vscode/
 *.suo
 *.tmp
 *.user
