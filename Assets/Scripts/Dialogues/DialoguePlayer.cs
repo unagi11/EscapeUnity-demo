@@ -117,6 +117,9 @@ namespace Escape.Dialogues
         private bool isAutoAdvancingEffectOnlyLine;
         private int playStartedFrame = -1;
         private int advanceInputConsumedFrame = -1;
+#if UNITY_EDITOR || DEVELOPMENT_BUILD || ESCAPE_TESTFLIGHT
+        private bool qaAdvanceRequested;
+#endif
         private Transform effectTarget;
         private Vector3 effectOriginalLocalPosition;
         private Vector3 effectOriginalLocalScale;
@@ -155,6 +158,17 @@ namespace Escape.Dialogues
         public bool ConsumedAdvanceInputThisFrame => advanceInputConsumedFrame == Time.frameCount;
         public Sprite CurrentPortraitSprite => currentPortraitSprite;
         public event System.Action<Sprite> PortraitSpriteChanged;
+
+#if UNITY_EDITOR || DEVELOPMENT_BUILD || ESCAPE_TESTFLIGHT
+        // 배치 모드에서도 .qa 대화 진행이 입력 장치 상태에 의존하지 않도록 한 줄 진행을 요청한다.
+        public void RequestQaAdvance()
+        {
+            if (IsPlaying && !waitingForChoice)
+            {
+                qaAdvanceRequested = true;
+            }
+        }
+#endif
 
         private void Awake()
         {
@@ -368,6 +382,9 @@ namespace Escape.Dialogues
             storyResult = new DialogueStoryResult(storyDialogueId);
             waitingForChoice = false;
             storyEndRequested = false;
+#if UNITY_EDITOR || DEVELOPMENT_BUILD || ESCAPE_TESTFLIGHT
+            qaAdvanceRequested = false;
+#endif
             if (lines.Length == 0)
             {
                 Stop();
@@ -423,6 +440,9 @@ namespace Escape.Dialogues
             lineTypingSfx = string.Empty;
             lineCharactersPerSecond = 0f;
             storyEndRequested = false;
+#if UNITY_EDITOR || DEVELOPMENT_BUILD || ESCAPE_TESTFLIGHT
+            qaAdvanceRequested = false;
+#endif
             panel?.StopBodyShake();
             panel?.SetWaitingForInput(false);
             hidePanelOnComplete = true;
@@ -636,7 +656,12 @@ namespace Escape.Dialogues
             while (true)
             {
                 ct.ThrowIfCancellationRequested();
-                if (WasAdvancePressed())
+                bool advanceRequested = WasAdvancePressed();
+#if UNITY_EDITOR || DEVELOPMENT_BUILD || ESCAPE_TESTFLIGHT
+                advanceRequested |= qaAdvanceRequested;
+                qaAdvanceRequested = false;
+#endif
+                if (advanceRequested)
                 {
                     advanceInputConsumedFrame = Time.frameCount;
                     return;
