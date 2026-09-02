@@ -29,7 +29,52 @@
 - UniTask 기반 비동기 대화·화면 전환 흐름
 - 아이템 획득, 조합, 선택 상태와 세이브/로드
 - 별도 씬으로 구성한 락픽 미니게임과 룸 상태 복귀
+- UI `RawImage` 기반 커스텀 포스트 이펙트와 픽셀 해상도 전환
 - 런타임 칩튠 BGM/SFX 재생 시스템
+
+## 코드를 처음 보는 분께
+
+이 저장소는 기능별 책임이 드러나도록 코드를 분리했습니다. 전체 코드를 순서대로 읽기보다 아래 진입점부터 확인하면 데모의 주요 흐름을 빠르게 파악할 수 있습니다.
+
+| 영역 | 주요 코드 | 확인할 내용 |
+| --- | --- | --- |
+| TSV 데이터 | [`TsvDataLoader.cs`](Assets/Scripts/Data/TsvDataLoader.cs), [`Assets/Resources/Data`](Assets/Resources/Data) | 대사·아이템·UI 텍스트를 코드와 분리해 세 언어로 로드하는 구조 |
+| 대사 연출 | [`DialoguePlayer.cs`](Assets/Scripts/Dialogues/DialoguePlayer.cs) | 비동기 타이핑, 선택지, 화면 효과와 스토리 상태 변경 흐름 |
+| 방 상호작용 | [`InteractionRule.cs`](Assets/Scripts/Room/Interactions/InteractionRule.cs), [`RoomInteractor.cs`](Assets/Scripts/Room/Interactions/RoomInteractor.cs) | 직렬화된 조건·결과와 클릭 판정을 분리한 오브젝트 상호작용 |
+| 아이템·진행 상태 | [`PlayerInventory.cs`](Assets/Scripts/Progress/PlayerInventory.cs), [`GameSession.cs`](Assets/Scripts/Progress/GameSession.cs) | 아이템 선택·조합과 현재 플레이 상태 관리 |
+| 락픽 미니게임 | [`LockPickGameController.cs`](Assets/Scripts/MiniGames/LockPickGameController.cs) | 별도 씬 미니게임의 입력, 핀 판정과 룸 복귀 |
+| 화면 연출 | [`Assets/Scripts/Room/ScreenEffects`](Assets/Scripts/Room/ScreenEffects), [`Assets/Shaders`](Assets/Shaders) | 상태 기반 포스트 이펙트와 화면 전환 |
+| 런타임 QA | [`RuntimeQaExecutor.cs`](Assets/Scripts/QA/RuntimeQaExecutor.cs), [`demo.qa`](Assets/StreamingAssets/QA/Routes/demo.qa) | 실제 입력 흐름을 재생하는 QA 명령과 데모 경로 |
+
+## 커스텀 쉐이더와 화면 연출
+
+### 상태 기반 룸 포스트 이펙트
+
+[`RoomRawImagePostEffect.shader`](Assets/Shaders/RoomRawImagePostEffect.shader)는 방의 렌더 텍스처를 표시하는 UI `RawImage`에 다음 효과를 한 패스에서 합성합니다.
+
+- 일반·방향성 블러
+- CRT 스캔라인, 화면 플리커와 노이즈
+- 최대 8색 제한 팔레트와 디더링
+- 화면 일부가 끊어지는 글리치, 색수차와 UV 왜곡
+- 색상 회전, 비네트 펄스와 저해상도 리샘플링
+
+효과 수치는 [`RoomPostEffectSettings.cs`](Assets/Scripts/Room/ScreenEffects/RoomPostEffectSettings.cs)의 `ScriptableObject` 프로필로 관리합니다. 공개 데모에는 `Default`, `Warn`, `Danger`, `Drunken` 프로필이 포함되어 있으며, [`RoomPostEffectController.cs`](Assets/Scripts/Room/ScreenEffects/RoomPostEffectController.cs)가 체력 상태 또는 대사 TSV의 `shader` 열에 맞춰 프로필과 BGM 피치를 함께 보간합니다.
+
+씬이 참조하는 공유 머티리얼을 플레이 중 직접 수정하지 않도록 시작 시 전용 런타임 머티리얼을 복제하고, 종료 시 원본을 복구합니다. 따라서 상태 전환 값이 에디터 에셋에 남지 않습니다.
+
+```text
+체력 변화 또는 dialogue*.tsv의 shader 값
+  → RoomPostEffectController
+  → RoomPostEffectSettings 프로필 보간
+  → RoomRawImagePostEffect.shader
+  → RoomImage 출력
+```
+
+### 픽셀 해상도 전환
+
+[`RoomResolutionFade.shader`](Assets/Shaders/RoomResolutionFade.shader)는 화면을 단순히 검게 덮지 않고 현재 방 프레임의 픽셀 해상도를 단계적으로 낮추거나 복원합니다. [`ResolutionFadeScreenEffectHandler.cs`](Assets/Scripts/Room/ScreenEffects/Handlers/ResolutionFadeScreenEffectHandler.cs)가 텍스처 높이를 2의 거듭제곱 단계로 변경하고, 쉐이더는 화면 비율에 맞춰 가로 셀 수를 계산해 픽셀 블록을 유지합니다.
+
+전환 직전에는 [`RoomScreenEffectResources.cs`](Assets/Scripts/Room/ScreenEffects/RoomScreenEffectResources.cs)가 `materialForRendering`을 복제해 현재 포스트 이펙트까지 포함된 방 화면을 `RenderTexture`로 캡처합니다. UI 클리핑 범위는 캡처용으로 확장하고 출력 알파는 별도로 보존해, 화면과 전환 사이에서 색감이나 투명도가 달라지지 않도록 구성했습니다.
 
 ## 실행 환경
 
