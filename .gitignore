@@ -13,6 +13,7 @@
 .utmp/
 tmp/
 .github-runner/
+.playwright-cli/
 /Draft/record-store-promo/node_modules/
 /Draft/record-store-promo/out/
 /[Ll]ibrary/

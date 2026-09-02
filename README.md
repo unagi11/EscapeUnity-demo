@@ -2,6 +2,10 @@
 
 `EscapeUnity`의 포트폴리오 제출용 공개 데모 저장소입니다. 원본 게임 전체가 아니라 타이틀에서 시작해 인트로와 침실 퍼즐을 체험하는 짧은 수직 슬라이스만 포함합니다.
 
+## 웹 데모
+
+[브라우저에서 EscapeUnity 데모 플레이](https://unagi11.github.io/EscapeUnity-demo/)
+
 ## 트레일러
 
 [![EscapeUnity 트레일러](https://img.youtube.com/vi/Ct5GcwSQ2rg/maxresdefault.jpg)](https://youtu.be/Ct5GcwSQ2rg?si=m8yjc33vhWTHBqdl)
@@ -42,6 +46,14 @@ git lfs pull
 ```
 
 Unity Hub에서 저장소 폴더를 Unity `6000.3.8f1`로 연 뒤 `Assets/Scenes/0_TitleScene.unity`를 실행합니다. Build Settings에는 타이틀, 침실, 락픽 씬만 등록되어 있습니다.
+
+WebGL 배포본을 갱신하려면 Web Build Support가 설치된 Unity에서 아래 명령을 실행한 뒤 생성된 `docs/`를 `main` 브랜치에 반영합니다. GitHub Actions가 해당 폴더를 GitHub Pages에 자동 배포합니다.
+
+```bash
+/Applications/Unity/Hub/Editor/6000.3.8f1/Unity.app/Contents/MacOS/Unity \
+  -batchmode -quit -projectPath "$PWD" \
+  -buildTarget WebGL -executeMethod Escape.EditorTools.ProjectBuilder.BuildWebGl
+```
 
 ## Repository scope
 

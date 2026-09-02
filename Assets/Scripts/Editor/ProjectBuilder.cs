@@ -135,6 +135,7 @@ namespace Escape.EditorTools
         private const string WindowsOutputPath = "Builds/Windows/EscapeHouse.exe";
         private const string StoveWindowsOutputDir = "Builds/StoveWindows";
         private const string StoveWindowsOutputPath = "Builds/StoveWindows/EscapeHouse.exe";
+        private const string WebGlOutputDir = "docs";
         private const string ApplicationIconDirectory = "Assets/AppIcon";
         private const string ApplicationIconFilePrefix = "icon_";
         private const string ApplicationIconSourcePath = "Assets/AppIcon/icon_1024.png";
@@ -290,6 +291,42 @@ namespace Escape.EditorTools
             Debug.Log($"[ProjectBuilder] STOVE Windows build succeeded: {version}");
         }
 
+        /// <summary>GitHub Pages에서 바로 배포할 수 있는 WebGL 빌드를 생성한다.</summary>
+        [MenuItem("EscapeUnity/Build WebGL for GitHub Pages")]
+        public static void BuildWebGl()
+        {
+            string version = GetBuildVersion("ESCAPEUNITY_WEBGL_VERSION");
+            string outputPath = Path.Combine(GetProjectPath(), WebGlOutputDir);
+
+            EnsureBuildScenesRegistered();
+            ResetBuildTimeScale();
+            ConfigureWebGlPlayerSettings();
+            PlayerSettings.bundleVersion = version;
+
+            if (Directory.Exists(outputPath))
+            {
+                Directory.Delete(outputPath, true);
+            }
+
+            BuildPlayerOptions options = new()
+            {
+                scenes = GetEnabledScenePaths(),
+                locationPathName = outputPath,
+                target = BuildTarget.WebGL,
+                targetGroup = BuildTargetGroup.WebGL,
+                options = BuildOptions.None,
+            };
+
+            BuildReport report = BuildPipeline.BuildPlayer(options);
+            if (report.summary.result != BuildResult.Succeeded)
+            {
+                throw new InvalidOperationException($"WebGL build failed: {report.summary.result}");
+            }
+
+            File.WriteAllText(Path.Combine(outputPath, ".nojekyll"), string.Empty);
+            Debug.Log($"[ProjectBuilder] WebGL build succeeded: {version}");
+        }
+
         // Bake the default player settings into ProjectSettings without
         // building. Usable via -executeMethod.
         public static void ConfigureDefaults()
@@ -348,6 +385,14 @@ namespace Escape.EditorTools
         private static void ConfigureWindowsPlayerSettings()
         {
             PlayerSettings.SetScriptingBackend(NamedBuildTarget.Standalone, ScriptingImplementation.Mono2x);
+        }
+
+        /// <summary>별도 응답 헤더를 설정할 수 없는 GitHub Pages용 압축 설정을 적용한다.</summary>
+        private static void ConfigureWebGlPlayerSettings()
+        {
+            PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Gzip;
+            PlayerSettings.WebGL.decompressionFallback = true;
+            PlayerSettings.WebGL.dataCaching = true;
         }
 
         private static void ConfigureAndroidPlayerSettings(int versionCode)
@@ -439,6 +484,13 @@ namespace Escape.EditorTools
             return string.IsNullOrWhiteSpace(value) ? fallback : value;
         }
 
+        /// <summary>현재 Unity 프로젝트의 절대 경로를 반환한다.</summary>
+        private static string GetProjectPath()
+        {
+            return Directory.GetParent(Application.dataPath)?.FullName ??
+                   throw new InvalidOperationException("Unity project path could not be resolved.");
+        }
+
         /// <summary>명시된 버전, 현재 Git 태그, 기본값 순서로 빌드 버전을 결정한다.</summary>
         private static string GetBuildVersion(string environmentKey)
         {
@@ -460,7 +512,8 @@ namespace Escape.EditorTools
             return HasEnvironmentValue("ESCAPEUNITY_IOS_VERSION") ||
                    HasEnvironmentValue("ESCAPEUNITY_ANDROID_VERSION") ||
                    HasEnvironmentValue("ESCAPEUNITY_WINDOWS_VERSION") ||
-                   HasEnvironmentValue("ESCAPEUNITY_STOVE_VERSION");
+                   HasEnvironmentValue("ESCAPEUNITY_STOVE_VERSION") ||
+                   HasEnvironmentValue("ESCAPEUNITY_WEBGL_VERSION");
         }
 
         /// <summary>환경변수에 공백이 아닌 값이 있는지 확인한다.</summary>

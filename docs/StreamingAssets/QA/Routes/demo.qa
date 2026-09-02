@@ -1,0 +1,51 @@
+# EscapeUnity Demo QA DSL v1
+# 타이틀 → 인트로 → 침실 퍼즐 → 데모 게임오버 → 타이틀 복귀
+
+START_NEW_GAME
+
+# 수갑을 풀어 침실 조사를 시작한다.
+TOUCH_OBJECT obj_mood_light interact_obj_mood_light_post
+DRAIN_DIALOGUE
+TOUCH_OBJECT obj_pin interact_obj_pin_bedroom_prev
+DRAIN_DIALOGUE
+INVENTORY_OPEN
+INVENTORY_SELECT hairpin
+INVENTORY_CLOSE
+TOUCH_OBJECT obj_handcuffs hairpin_obj_handcuffs_prev
+DRAIN_DIALOGUE
+ASSERT_ITEM lockpick_set ON
+CHEAT_LOCKPICK HANDCUFFS
+
+# 강아지 인형을 돌려놓는다.
+TOUCH_OBJECT obj_dogdoll_in interact_obj_dogdoll_in_prev
+DRAIN_DIALOGUE
+INVENTORY_OPEN
+INVENTORY_SELECT dogdoll
+INVENTORY_CLOSE
+TOUCH_OBJECT obj_bed dogdoll_obj_bed_held_prev
+DRAIN_DIALOGUE
+
+# 손전등을 조립해 거실 문을 열 수 있는 상태를 만든다.
+TOUCH_OBJECT obj_remote interact_obj_remote_prev
+DRAIN_DIALOGUE
+TOUCH_OBJECT obj_drawer1 interact_obj_drawer1_prev
+DRAIN_DIALOGUE
+TOUCH_OBJECT obj_flash_empty interact_obj_flashlight_acquired
+DRAIN_DIALOGUE
+TOUCH_OBJECT black any_popup_drawer_close_prev
+DRAIN_DIALOGUE
+INVENTORY_OPEN
+INVENTORY_SELECT aircon_remote
+INVENTORY_DISASSEMBLE
+DRAIN_DIALOGUE
+INVENTORY_SELECT flashlight_empty
+INVENTORY_ASSEMBLE
+INVENTORY_SELECT battery
+DRAIN_DIALOGUE
+INVENTORY_CLOSE
+SELECT_INTERACT
+
+# 데모 전용 게임오버 대사를 끝까지 재생하고 타이틀 복귀를 확인한다.
+TOUCH_OBJECT dor_living_room flashlight_door_living_room_prev
+DRAIN_DIALOGUE
+WAIT_SCENE 0_TitleScene

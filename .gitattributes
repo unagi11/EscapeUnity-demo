@@ -172,3 +172,6 @@ Packages/packages-lock.json linguist-generated
 
 # Exceptions for .asset files such as lightning pre-baking
 LightingData.asset     binary
+
+# GitHub Pages 산출물은 Actions가 LFS 없이 그대로 배포할 수 있게 일반 Git 파일로 유지한다.
+/docs/**                -filter -diff -merge
