@@ -42,6 +42,9 @@ namespace Escape.Audio
         private int segmentLoopPlaybackIndex;
         private bool segmentLoopEnabled;
         private bool segmentLoopCaptured;
+        private bool useNonStreamingClipPlayback;
+        private int nonStreamingSegmentStartSample;
+        private int nonStreamingSegmentEndSample;
 
         public static ChipSynthPlayer Instance => instance;
         public float Volume => volume;
@@ -59,6 +62,12 @@ namespace Escape.Audio
                     if (!playing || song == null || song.StepCount <= 0)
                     {
                         return -1;
+                    }
+
+                    if (useNonStreamingClipPlayback && audioSource != null && audioSource.clip != null)
+                    {
+                        int stepIndex = (int)Math.Floor(audioSource.time / song.StepDurationSeconds);
+                        return stepIndex % song.StepCount;
                     }
 
                     int index = nextStepIndex - 1;
@@ -93,6 +102,7 @@ namespace Escape.Audio
 
         private void Awake()
         {
+            useNonStreamingClipPlayback = Application.platform == RuntimePlatform.WebGLPlayer;
             if (instance != null && instance != this)
             {
                 Debug.Log(
@@ -121,7 +131,17 @@ namespace Escape.Audio
             audioSource.loop = true;
             audioSource.spatialBlend = 0f;
             audioSource.pitch = 1f;
-            audioSource.clip = AudioClip.Create("ChipSynthStream", sampleRate * StreamLengthSeconds, 1, sampleRate, true, OnAudioRead);
+            audioSource.volume = useNonStreamingClipPlayback ? volume : 1f;
+            if (!useNonStreamingClipPlayback)
+            {
+                audioSource.clip = AudioClip.Create(
+                    "ChipSynthStream",
+                    sampleRate * StreamLengthSeconds,
+                    1,
+                    sampleRate,
+                    true,
+                    OnAudioRead);
+            }
         }
 
         private void Start()
@@ -171,14 +191,14 @@ namespace Escape.Audio
 
         private void Update()
         {
-            if (!playSelectedSongInPlayMode || initialSong == activeInspectorSong)
+            if (playSelectedSongInPlayMode && initialSong != activeInspectorSong)
             {
-                return;
+                // 인스펙터 선택 변경만 추적하고, 실제 재생곡 변경과는 분리한다.
+                activeInspectorSong = initialSong;
+                Play(initialSong);
             }
 
-            // 인스펙터 선택 변경만 추적하고, 실제 재생곡 변경과는 분리한다.
-            activeInspectorSong = initialSong;
-            Play(initialSong);
+            UpdateNonStreamingSegmentLoop();
         }
 
         public bool Play(ChipSongId songId)
@@ -226,6 +246,12 @@ namespace Escape.Audio
             Debug.Log(
                 $"[BGM] Play song. scene={SceneManager.GetActiveScene().name}, " +
                 $"previous={previousSongId}, next={nextSong.Id} ({nextSong.Title})");
+
+            if (useNonStreamingClipPlayback)
+            {
+                PlayNonStreamingSong(nextSong);
+                return;
+            }
 
             lock (stateLock)
             {
@@ -275,6 +301,12 @@ namespace Escape.Audio
                 $"[BGM] Prepare paused song. scene={SceneManager.GetActiveScene().name}, " +
                 $"previous={previousSongId}, next={nextSong.Id} ({nextSong.Title})");
 
+            if (useNonStreamingClipPlayback)
+            {
+                PrepareNonStreamingSongPaused(nextSong);
+                return;
+            }
+
             lock (stateLock)
             {
                 DisableSegmentLoopLocked();
@@ -302,6 +334,12 @@ namespace Escape.Audio
             Debug.Log(
                 $"[BGM] Stop song. scene={SceneManager.GetActiveScene().name}, " +
                 $"current={song?.Id ?? "<none>"}");
+
+            if (useNonStreamingClipPlayback)
+            {
+                StopNonStreamingSong();
+                return;
+            }
 
             lock (stateLock)
             {
@@ -342,6 +380,12 @@ namespace Escape.Audio
 
         public void SetPaused(bool value)
         {
+            if (useNonStreamingClipPlayback)
+            {
+                SetNonStreamingPaused(value);
+                return;
+            }
+
             lock (stateLock)
             {
                 paused = value;
@@ -355,6 +399,10 @@ namespace Escape.Audio
         public void SetVolume(float value)
         {
             volume = Mathf.Clamp01(value);
+            if (useNonStreamingClipPlayback && audioSource != null)
+            {
+                audioSource.volume = volume;
+            }
         }
 
         // 현재 BGM 재생 속도와 음높이를 함께 조절한다.
@@ -369,6 +417,11 @@ namespace Escape.Audio
         // 현재부터 지정 길이만큼 출력되는 BGM 조각을 잡아 해제할 때까지 반복한다.
         public bool StartSegmentLoop(int milliseconds)
         {
+            if (useNonStreamingClipPlayback)
+            {
+                return StartNonStreamingSegmentLoop(milliseconds);
+            }
+
             lock (stateLock)
             {
                 if (!playing || paused || song == null)
@@ -404,6 +457,211 @@ namespace Escape.Audio
             segmentLoopPlaybackIndex = 0;
             segmentLoopEnabled = false;
             segmentLoopCaptured = false;
+            nonStreamingSegmentStartSample = 0;
+            nonStreamingSegmentEndSample = 0;
+        }
+
+        // WebGL에서는 실시간 PCM 스트림 대신 한 루프 전체를 비스트리밍 클립으로 합성해 재생한다.
+        private void PlayNonStreamingSong(ChipSong nextSong)
+        {
+            bool reuseCurrentClip;
+            lock (stateLock)
+            {
+                DisableSegmentLoopLocked();
+                reuseCurrentClip = playing && song != null && audioSource != null && audioSource.clip != null &&
+                    string.Equals(song.Id, nextSong.Id, StringComparison.Ordinal);
+                paused = false;
+            }
+
+            if (reuseCurrentClip)
+            {
+                audioSource.UnPause();
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.Play();
+                }
+
+                return;
+            }
+
+            CreateAndPlayNonStreamingClip(nextSong, false);
+        }
+
+        // WebGL 리듬 연동용 곡을 첫 샘플에 준비한 뒤 명시적인 재개 전까지 멈춘다.
+        private void PrepareNonStreamingSongPaused(ChipSong nextSong)
+        {
+            CreateAndPlayNonStreamingClip(nextSong, true);
+        }
+
+        // WebGL이 요구하는 완전한 PCM 데이터를 생성하고 AudioSource에 새 루프 클립을 연결한다.
+        private void CreateAndPlayNonStreamingClip(ChipSong nextSong, bool startPaused)
+        {
+            if (audioSource == null)
+            {
+                return;
+            }
+
+            lock (stateLock)
+            {
+                DisableSegmentLoopLocked();
+                song = nextSong;
+                pendingSong = null;
+                playing = true;
+                paused = false;
+                stopAfterFade = false;
+                fadeLevel = 1.0;
+                fadeTarget = 1.0;
+                songTime = 0;
+                nextStepIndex = 0;
+                nextStepTime = 0;
+                activeNotes.Clear();
+            }
+
+            int sampleCount = CalculateNonStreamingSampleCount(nextSong);
+            AudioClip nextClip = AudioClip.Create(
+                $"ChipSynth_{nextSong.Id}",
+                sampleCount,
+                1,
+                sampleRate,
+                false,
+                OnAudioRead);
+            AudioClip previousClip = audioSource.clip;
+            audioSource.Stop();
+            audioSource.clip = nextClip;
+            audioSource.loop = true;
+            audioSource.volume = volume;
+            audioSource.Play();
+
+            lock (stateLock)
+            {
+                paused = startPaused;
+                songTime = 0;
+                nextStepIndex = 0;
+                nextStepTime = 0;
+                activeNotes.Clear();
+            }
+
+            if (startPaused)
+            {
+                audioSource.Pause();
+            }
+
+            if (previousClip != null)
+            {
+                Destroy(previousClip);
+            }
+        }
+
+        // 곡 길이를 WebGL 비스트리밍 AudioClip의 전체 샘플 수로 환산한다.
+        private int CalculateNonStreamingSampleCount(ChipSong nextSong)
+        {
+            double exactSampleCount = nextSong.StepCount * nextSong.StepDurationSeconds * sampleRate;
+            return Math.Max(1, (int)Math.Round(exactSampleCount));
+        }
+
+        // WebGL 클립은 PCM 콜백 페이드가 진행되지 않으므로 즉시 정지하고 메모리를 해제한다.
+        private void StopNonStreamingSong()
+        {
+            lock (stateLock)
+            {
+                DisableSegmentLoopLocked();
+                playing = false;
+                paused = false;
+                song = null;
+                pendingSong = null;
+                stopAfterFade = false;
+                fadeLevel = 0.0;
+                fadeTarget = 0.0;
+                activeNotes.Clear();
+            }
+
+            if (audioSource == null)
+            {
+                return;
+            }
+
+            AudioClip previousClip = audioSource.clip;
+            audioSource.Stop();
+            audioSource.clip = null;
+            if (previousClip != null)
+            {
+                Destroy(previousClip);
+            }
+        }
+
+        // WebGL의 정적 루프 클립을 AudioSource 자체의 일시정지 API로 제어한다.
+        private void SetNonStreamingPaused(bool value)
+        {
+            lock (stateLock)
+            {
+                if (!playing || song == null)
+                {
+                    return;
+                }
+
+                paused = value;
+            }
+
+            if (audioSource == null)
+            {
+                return;
+            }
+
+            if (value)
+            {
+                audioSource.Pause();
+                return;
+            }
+
+            audioSource.UnPause();
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
+
+        // WebGL 정적 클립의 현재 재생 위치를 짧은 반복 구간으로 지정한다.
+        private bool StartNonStreamingSegmentLoop(int milliseconds)
+        {
+            lock (stateLock)
+            {
+                if (!playing || paused || song == null || audioSource == null || audioSource.clip == null)
+                {
+                    return false;
+                }
+
+                int sampleCount = Math.Max(1, sampleRate * Mathf.Clamp(milliseconds, 10, 1000) / 1000);
+                nonStreamingSegmentStartSample = audioSource.timeSamples;
+                nonStreamingSegmentEndSample = Math.Min(
+                    audioSource.clip.samples,
+                    nonStreamingSegmentStartSample + sampleCount);
+                segmentLoopEnabled = nonStreamingSegmentEndSample > nonStreamingSegmentStartSample;
+                segmentLoopCaptured = segmentLoopEnabled;
+                return segmentLoopEnabled;
+            }
+        }
+
+        // WebGL 정적 클립이 지정 구간 끝에 도달하면 시작 샘플로 되감는다.
+        private void UpdateNonStreamingSegmentLoop()
+        {
+            if (!useNonStreamingClipPlayback || audioSource == null || audioSource.clip == null)
+            {
+                return;
+            }
+
+            lock (stateLock)
+            {
+                if (!segmentLoopEnabled || paused || !playing)
+                {
+                    return;
+                }
+
+                int currentSample = audioSource.timeSamples;
+                if (currentSample >= nonStreamingSegmentEndSample || currentSample < nonStreamingSegmentStartSample)
+                {
+                    audioSource.timeSamples = nonStreamingSegmentStartSample;
+                }
+            }
         }
 
         private void OnAudioRead(float[] data)
@@ -493,7 +751,8 @@ namespace Escape.Audio
 
                     // 설정 슬라이더 비율은 유지하면서 칩 BGM의 전체 체감 음량을 넉넉하게 보강한다.
                     float output = mixed * song.MasterGain * OutputGain * (float)fadeLevel;
-                    data[i] = Mathf.Clamp(output * volume, -1f, 1f);
+                    float playbackVolume = useNonStreamingClipPlayback ? 1f : volume;
+                    data[i] = Mathf.Clamp(output * playbackVolume, -1f, 1f);
                     if (segmentLoopEnabled)
                     {
                         segmentLoopBuffer[segmentLoopCaptureIndex++] = output;
