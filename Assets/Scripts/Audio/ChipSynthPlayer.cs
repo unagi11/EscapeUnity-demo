@@ -13,6 +13,7 @@ namespace Escape.Audio
         private const int StreamSampleRate = 48000;
         private const int StreamLengthSeconds = 1;
         private const float OutputGain = 3f;
+        private const string WebGlAudioResourceDirectory = "ChipSongAudio";
         private static ChipSynthPlayer instance;
 
         [SerializeField, Range(0f, 1f)] private float volume = 0.7f;
@@ -461,7 +462,7 @@ namespace Escape.Audio
             nonStreamingSegmentEndSample = 0;
         }
 
-        // WebGL에서는 실시간 PCM 스트림 대신 한 루프 전체를 비스트리밍 클립으로 합성해 재생한다.
+        // WebGL에서는 WASM 힙에 PCM을 만들지 않고 빌드에 포함된 압축 루프 클립을 재생한다.
         private void PlayNonStreamingSong(ChipSong nextSong)
         {
             bool reuseCurrentClip;
@@ -493,11 +494,20 @@ namespace Escape.Audio
             CreateAndPlayNonStreamingClip(nextSong, true);
         }
 
-        // WebGL이 요구하는 완전한 PCM 데이터를 생성하고 AudioSource에 새 루프 클립을 연결한다.
+        // WebGL용 사전 합성 클립을 Resources에서 읽어 AudioSource에 새 루프로 연결한다.
         private void CreateAndPlayNonStreamingClip(ChipSong nextSong, bool startPaused)
         {
             if (audioSource == null)
             {
+                return;
+            }
+
+            string resourcePath = $"{WebGlAudioResourceDirectory}/{nextSong.Id}";
+            AudioClip nextClip = Resources.Load<AudioClip>(resourcePath);
+            if (nextClip == null)
+            {
+                Debug.LogError($"WebGL chip song audio not found: {resourcePath}");
+                StopNonStreamingSong();
                 return;
             }
 
@@ -517,14 +527,6 @@ namespace Escape.Audio
                 activeNotes.Clear();
             }
 
-            int sampleCount = CalculateNonStreamingSampleCount(nextSong);
-            AudioClip nextClip = AudioClip.Create(
-                $"ChipSynth_{nextSong.Id}",
-                sampleCount,
-                1,
-                sampleRate,
-                false,
-                OnAudioRead);
             AudioClip previousClip = audioSource.clip;
             audioSource.Stop();
             audioSource.clip = nextClip;
@@ -546,20 +548,13 @@ namespace Escape.Audio
                 audioSource.Pause();
             }
 
-            if (previousClip != null)
+            if (previousClip != null && previousClip != nextClip)
             {
-                Destroy(previousClip);
+                Resources.UnloadAsset(previousClip);
             }
         }
 
-        // 곡 길이를 WebGL 비스트리밍 AudioClip의 전체 샘플 수로 환산한다.
-        private int CalculateNonStreamingSampleCount(ChipSong nextSong)
-        {
-            double exactSampleCount = nextSong.StepCount * nextSong.StepDurationSeconds * sampleRate;
-            return Math.Max(1, (int)Math.Round(exactSampleCount));
-        }
-
-        // WebGL 클립은 PCM 콜백 페이드가 진행되지 않으므로 즉시 정지하고 메모리를 해제한다.
+        // WebGL 클립은 PCM 콜백 페이드가 진행되지 않으므로 즉시 정지하고 리소스를 해제한다.
         private void StopNonStreamingSong()
         {
             lock (stateLock)
@@ -585,7 +580,7 @@ namespace Escape.Audio
             audioSource.clip = null;
             if (previousClip != null)
             {
-                Destroy(previousClip);
+                Resources.UnloadAsset(previousClip);
             }
         }
 
@@ -751,8 +746,7 @@ namespace Escape.Audio
 
                     // 설정 슬라이더 비율은 유지하면서 칩 BGM의 전체 체감 음량을 넉넉하게 보강한다.
                     float output = mixed * song.MasterGain * OutputGain * (float)fadeLevel;
-                    float playbackVolume = useNonStreamingClipPlayback ? 1f : volume;
-                    data[i] = Mathf.Clamp(output * playbackVolume, -1f, 1f);
+                    data[i] = Mathf.Clamp(output * volume, -1f, 1f);
                     if (segmentLoopEnabled)
                     {
                         segmentLoopBuffer[segmentLoopCaptureIndex++] = output;
