@@ -6,11 +6,11 @@
 
 [브라우저에서 EscapeUnity 데모 플레이](https://unagi11.github.io/EscapeUnity-demo/)
 
-## 트레일러
+## 공식 트레일러
 
-[![EscapeUnity 트레일러](https://img.youtube.com/vi/Ct5GcwSQ2rg/maxresdefault.jpg)](https://youtu.be/Ct5GcwSQ2rg?si=m8yjc33vhWTHBqdl)
+[![EscapeUnity 공식 트레일러](https://img.youtube.com/vi/Ct5GcwSQ2rg/hqdefault.jpg)](https://www.youtube.com/watch?v=Ct5GcwSQ2rg)
 
-▶ [EscapeUnity 데모 플레이 영상](https://youtu.be/Ct5GcwSQ2rg?si=m8yjc33vhWTHBqdl)
+▶ [YouTube에서 공식 트레일러 보기](https://www.youtube.com/watch?v=Ct5GcwSQ2rg)
 
 ## 데모 범위
 
